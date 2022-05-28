@@ -27,10 +27,6 @@ class HomeController extends Controller
 
         return view('dashboard', compact('data'));
     }
-    public function product()
-    {
-        return view('product');
-    }
     public function salesreport()
     {
         return view('salesreport');

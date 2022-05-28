@@ -16,11 +16,12 @@ class CreateProduct extends Migration
         Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->string('product_image');       
-            $table->decimal('description');
+            $table->string('description');
             $table->string('category');
-            $table->string('price');
+            $table->decimal('price');
+            $table->string('size');
             $table->boolean('status');
-            $table->boolean('barcode');
+            $table->string('barcode');
             
             $table->timestamps();
         });
