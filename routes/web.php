@@ -47,3 +47,4 @@ route::post('/save',[ProductController::class,'save'])->name('save.product');
 Route::get('/add-category/{name}', 'App\Http\Controllers\ProductController@add_category')->name('category.add')->middleware('auth');
 Route::post('/add-product', 'App\Http\Controllers\ProductController@add_product')->name('product.add')->middleware('auth');
 
+

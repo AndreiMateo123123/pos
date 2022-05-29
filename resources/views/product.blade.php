@@ -13,7 +13,6 @@
                             <th scope="col">#</th>
                             <th scope="col">Desciption</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Category</th>
                             <th scope="col">Status</th>
                             <th scope="col">Size</th>
                             <th scope="col">Image</th>
@@ -25,11 +24,13 @@
                                   <td>{{$item->id}}</td>
                                   <td>{{$item->description}}</td>
                                   <td>{{$item->price}}</td>
-                                  <td>{{$item->category}}</td>
                                   <td>{{$item->status}}</td>
                                   <td>{{$item->size}}</td>
                                   <td><img src="/black/product/{{$item->product_image}}" alt="Product" style="width: 60px; height: 50px"></td>
+                                  <td>             
+                                  </td>
                                 </tr>
+                                
                             @endforeach
                         </tbody>
                     </table>

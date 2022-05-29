@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = productModel::get();
-
+        
         return view('dashboard', compact('data'));
     }
     public function salesreport()

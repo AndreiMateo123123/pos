@@ -41,4 +41,9 @@ class ProductController extends Controller
         ]);
         return back();
     }
+ //   public function delete_function($id)
+  //  {
+      //      DB:delete('delete from product where id = ?', [$id]
+       //     "return" redirect('product')->with('success','Data_Deleted');
+ //   } 
 }
