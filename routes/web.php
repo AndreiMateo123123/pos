@@ -48,3 +48,4 @@ Route::get('/add-category/{name}', 'App\Http\Controllers\ProductController@add_c
 Route::post('/add-product', 'App\Http\Controllers\ProductController@add_product')->name('product.add')->middleware('auth');
 
 
+Route::get('/dashboard/{id}', 'App\Http\Controllers\HomeController@dashdata')->name('dashdata')->middleware('auth');

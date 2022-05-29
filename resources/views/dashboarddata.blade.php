@@ -15,9 +15,22 @@
                         <th scope="col">size</th>
                         <th scope="col">color</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($data as $item)
+                        <tr>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->description}}</td>
+                            <td>{{$item->price}}</td>
+                            <td>{{$item->size}}</td>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->id}}</td>
+                            <td><img src="/black/product/{{$item->product_image}}" alt="Product" style="width: 60px; height: 50px"></td>
+                        </tr>
+                        @endforeach
+                       
                     </tbody>
                 </table>
                 </div>

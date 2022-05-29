@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\productModel;
+use App\Models\categoryModel;
 
 class HomeController extends Controller
 {
@@ -24,8 +25,15 @@ class HomeController extends Controller
     public function index()
     {
         $data = productModel::get();
+        $cat = categoryModel::get();
         
-        return view('dashboard', compact('data'));
+        return view('dashboard', compact('data','cat'));
+    }
+    public function dashdata($id)
+    {
+        $data = productModel::where('category',$id)->get();
+        $cat = categoryModel::get();
+        return view('dashboarddata', compact('data','cat'));
     }
     public function salesreport()
     {
