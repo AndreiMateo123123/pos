@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
+Route::get('/cart', 'App\Http\Controllers\HomeController@cart')->name('cart')->middleware('auth');
 Route::get('/product', 'App\Http\Controllers\ProductController@product')->name('product')->middleware('auth');
 Route::get('/salesreport', 'App\Http\Controllers\HomeController@salesreport')->name('salesreport')->middleware('auth');
 Route::get('/payment', 'App\Http\Controllers\HomeController@payment')->name('payment')->middleware('auth');
@@ -47,5 +48,7 @@ route::post('/save',[ProductController::class,'save'])->name('save.product');
 Route::get('/add-category/{name}', 'App\Http\Controllers\ProductController@add_category')->name('category.add')->middleware('auth');
 Route::post('/add-product', 'App\Http\Controllers\ProductController@add_product')->name('product.add')->middleware('auth');
 
+Route::get('/add-cart/{id}', 'App\Http\Controllers\ProductController@addtocart')->name('cart.add')->middleware('auth');
+Route::get('/remove-cart/{id}', 'App\Http\Controllers\ProductController@removetocart')->name('cart.remove')->middleware('auth');
 
 Route::get('/dashboard/{id}', 'App\Http\Controllers\HomeController@dashdata')->name('dashdata')->middleware('auth');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\productModel; 
 use App\Models\categoryModel;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -41,6 +43,19 @@ class ProductController extends Controller
             'quantity' =>$request->quantity,
 
         ]);
+        return back();
+    }
+    public function addtocart($id){
+        Cart::insert([
+            'product_id' => $id,
+            'quantity' => 1,
+            'user-id' => Auth::user()->id,
+
+        ]);
+        return back();
+    }
+    public function removetocart($id){
+        Cart::where('id', $id)->delete();
         return back();
     }
  //   public function delete_function($id)

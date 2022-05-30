@@ -31,6 +31,7 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->id}}</td>
                             <td><img src="/black/product/{{$item->product_image}}" alt="Product" style="width: 60px; height: 50px"></td>
+                            <td><a href="{{route('cart.add', $item->id)}}" class="btn btn-success btn-sm">Add</a></td>
                         </tr>
                         @endforeach
                        
@@ -39,7 +40,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     <div class="row">   
-                        
+                       
                     </div>              
                 </div>
 
@@ -47,6 +48,13 @@
             </div>
         </div>
         <div class='col-md-2'>
+          <div class="card">
+            <div class="card-body">
+                <a href="{{route('cart')}}" class="btn btn-primary btn-block">
+                    <span class="badge badge-danger badge-pill">{{count($cartdata)}}</span><i class="fa-solid fa-cart-arrow-down"></i> Cart
+                </a>
+            </div>
+          </div>
           <div class="card">
             <div class="card-body">
               @foreach($cat as $item)

@@ -20,6 +20,8 @@
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=3" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
 
+        <script src="https://kit.fontawesome.com/b75595df6d.js" crossorigin="anonymous"></script>
+
         
 
     </head>

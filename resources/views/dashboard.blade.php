@@ -33,6 +33,13 @@
         <div class='col-md-2'>
           <div class="card">
             <div class="card-body">
+                <a href="{{route('cart')}}" class="btn btn-primary btn-block">
+                    <span class="badge badge-danger badge-pill">{{count($cartdata)}}</span><i class="fa-solid fa-cart-arrow-down"></i> Cart
+                </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
               @foreach($cat as $item)
                 <a href="{{route('dashdata', $item->id)}}" class="btn btn-primary btn-block" >{{$item->name}}</a>
               @endforeach

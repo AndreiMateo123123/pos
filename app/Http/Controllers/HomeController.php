@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\productModel;
 use App\Models\categoryModel;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -26,14 +29,24 @@ class HomeController extends Controller
     {
         $data = productModel::get();
         $cat = categoryModel::get();
-        
-        return view('dashboard', compact('data','cat'));
+        $cartdata = Cart::where('user-id', Auth::user()->id)->get();
+
+        return view('dashboard', compact('data','cat','cartdata'));
     }
     public function dashdata($id)
     {
         $data = productModel::where('category',$id)->get();
         $cat = categoryModel::get();
-        return view('dashboarddata', compact('data','cat'));
+        $cartdata = Cart::where('user-id', Auth::user()->id)->get();
+
+        return view('dashboarddata', compact('data','cat','cartdata'));
+    }
+    public function cart()
+    {
+
+        $data = Cart::selectRaw('carts.id as cart_id, carts.quantity, product_image, description, category, price, size, status, barcode, color')->join('product', 'carts.product_id', '=', 'product.id')->get();
+        // dd($data);
+        return view('cart', compact('data'));
     }
     
     public function salesreport()
