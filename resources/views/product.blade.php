@@ -16,6 +16,9 @@
                             <th scope="col">Status</th>
                             <th scope="col">Size</th>
                             <th scope="col">Image</th>
+                            <th scope="col">color</th>
+                            <th scope="col">quantity</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -24,8 +27,16 @@
                                   <td>{{$item->id}}</td>
                                   <td>{{$item->description}}</td>
                                   <td>{{$item->price}}</td>
-                                  <td>{{$item->status}}</td>
+                                  <td>@if($item->status == 1)
+                                      Available
+                                      @else 
+                                      Unavailable
+                                      @endif
+                                  </td>
+
                                   <td>{{$item->size}}</td>
+                                  <td>{{$item->color}}</td>
+                                  <td>{{$item->quantity}}</td>
                                   <td><img src="/black/product/{{$item->product_image}}" alt="Product" style="width: 60px; height: 50px"></td>
                                   <td>             
                                   </td>
@@ -52,6 +63,9 @@
 
                         <label for="inputPassword5" class="form-label">Price</label>
                         <input id="inputPassword5" class="form-control" name="price" required>  
+
+                        <label for="inputPassword5" class="form-label">quantity</label>
+                        <input id="inputPassword5" class="form-control" name="quantity" required>
                         <br>
                         <label for="image" class="form-label">Attach</label>
                         <input type="file" id="image" name="image" accept="image" required />
@@ -84,6 +98,16 @@
                           </select>
                           
                           <br/> 
+                          <br>
+                        <select class="form-control bg-dark" aria-label="Default select example" name="color" required>
+                            <option selected>-----------Select color-----------  </option>
+                            <option value="white">white</option>
+                            <option value="black">black</option>
+                            
+                          </select>
+                          
+                          <br/> 
+                        
                         <br>
                         <select class="form-control bg-dark" aria-label="Default select example" name="status" required>
                             <option selected>----------  Select Status ----------</option>

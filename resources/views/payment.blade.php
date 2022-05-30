@@ -3,7 +3,28 @@
 @section('content')
 <div class="container">
     <div class="row">
-        payment
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body"> 
+                    <table class="table table-striped">
+                        <thead>
+                            
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Desciption</th>
+                            <th scope="col">Price</th>   
+                            <th scope="col">Size</th>
+                            <th scope="col">color</th>                  
+                            <th scope="col">Quantity</th>        
+                            <th scope="col">Image</th>
+                            <th scope="col">Status</th>
+                         
+                          
+
+                            </tr>
+                        </thead>
+                    </table>
+                   
     </div>
 </div>
 @endsection
@@ -16,3 +37,6 @@
         });
     </script>
 @endpush
+
+
+<td> <input type="text" class="qty-input" value="0"> <!-- Your Number of Quantity --></td>

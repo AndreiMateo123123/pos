@@ -8,7 +8,9 @@
                 <div class="card-body">
                 <table class="table table-striped">
                     <thead>
+                        
                         <tr>
+                            <th scope="col"></th>     
                         <th scope="col">#</th>
                         <th scope="col">name</th>
                         <th scope="col">Price</th>
@@ -21,6 +23,7 @@
                     <tbody>
                         @foreach($data as $item)
                         <tr>
+                         <td>   <input type="checkbox" aria-label="Checkbox for following text input"></td>
                             <td>{{$item->id}}</td>
                             <td>{{$item->description}}</td>
                             <td>{{$item->price}}</td>

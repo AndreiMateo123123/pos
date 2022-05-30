@@ -37,6 +37,8 @@ class ProductController extends Controller
             'status' => $request->status,
             'barcode' => $request->barcode,
             'price' =>$request->price,
+            'color' =>$request->color,
+            'quantity' =>$request->quantity,
 
         ]);
         return back();

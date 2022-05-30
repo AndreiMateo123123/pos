@@ -35,6 +35,7 @@ class HomeController extends Controller
         $cat = categoryModel::get();
         return view('dashboarddata', compact('data','cat'));
     }
+    
     public function salesreport()
     {
         return view('salesreport');
@@ -46,5 +47,9 @@ class HomeController extends Controller
     public function cancelorder()
     {
         return view('cancelorder');
+    }
+    public function order()
+    {
+        return view('order');
     }
 }
