@@ -35,7 +35,7 @@
                     <p>{{ __('Sales Report') }}</p>
                 </a>
             </li>
-     dashboard       <li>
+      <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="fab fa-laravel" ></i>
                     <span class="nav-link-text" >{{ __('User Management') }}</span>

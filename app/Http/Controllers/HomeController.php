@@ -44,7 +44,7 @@ class HomeController extends Controller
     public function cart()
     {
 
-        $data = Cart::selectRaw('carts.id as cart_id, carts.quantity, product_image, description, category, price, size, status, barcode, color')->join('product', 'carts.product_id', '=', 'product.id')->get();
+        $data = Cart::selectRaw('carts.id as cart_id, carts.quantity as client_quantity, product.quantity as store_quantity, product_image, description, category, price, size, status, barcode, color')->join('product', 'carts.product_id', '=', 'product.id')->get();
         // dd($data);
         return view('cart', compact('data'));
     }
