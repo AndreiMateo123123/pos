@@ -39,4 +39,3 @@
 @endpush
 
 
-<td> <input type="text" class="qty-input" value="0"> <!-- Your Number of Quantity --></td>

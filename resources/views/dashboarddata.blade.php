@@ -23,12 +23,12 @@
                     <tbody>
                         @foreach($data as $item)
                         <tr>
-                         <td>   <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                         <td> </td>
                             <td>{{$item->id}}</td>
                             <td>{{$item->description}}</td>
                             <td>{{$item->price}}</td>
                             <td>{{$item->size}}</td>
-                            <td>{{$item->id}}</td>
+                            <td>{{$item->color}}</td>
                             <td>{{$item->id}}</td>
                             <td><img src="/black/product/{{$item->product_image}}" alt="Product" style="width: 60px; height: 50px"></td>
                             <td><a href="{{route('cart.add', $item->id)}}" class="btn btn-success btn-sm">Add</a></td>

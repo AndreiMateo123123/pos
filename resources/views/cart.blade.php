@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     <h3>Cart</h3>
@@ -26,13 +26,26 @@
                         <tbody>
                             @foreach($data as $item)
                             <tr>
-                             <td>   <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                             <td>   </td>
                                 <td>{{$item->cart_id}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->price}}</td>
                                 <td>{{$item->size}}</td>
                                 <td>{{$item->color}}</td>
-                                <td>{{$item->quantity}}</td>
+        <!-- Quantiy -->                        
+                                <td class="cart-product-quantity" width="130px">
+                                    <div class="input-group quantity">
+                                        <div class="input-group-prepend decrement-btn" style="cursor: pointer">
+                                            <span class="input-group-text">-</span>
+                                        </div>
+                                        <input type="text" class="qty-input form-control" maxlength="2" max="10" value="1">
+                                        
+                                        <div class="input-group-append increment-btn" style="cursor: pointer">
+                                            <span class="input-group-text">+</span>
+                                        </div>
+                                    </div>
+                                </td>
+
                                 <td><img src="/black/product/{{$item->product_image}}" alt="Product" style="width: 60px; height: 50px"></td>
                                 <td><a href="{{route('cart.remove', $item->cart_id)}}" class="btn btn-danger btn-sm">Remove</a></td>
                             </tr>
@@ -50,6 +63,11 @@
 
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>total</h3>
+                </div>
     </div>
 </div>
 @endsection

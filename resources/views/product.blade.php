@@ -122,8 +122,6 @@
                     <div class="row">   
                         <div class="col"> 
                             <button class="btn btn-primary btn-sm" type="submit">save</button>
-                            <button class="btn btn-primary btn-sm">update</button>
-                            <button class="btn btn-primary btn-sm">delete</button>
                         </div>
                     </div>              
                 </div>

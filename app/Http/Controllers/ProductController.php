@@ -58,6 +58,20 @@ class ProductController extends Controller
         Cart::where('id', $id)->delete();
         return back();
     }
+
+    // public function increaseQuantity($id)
+    // {
+    //     $this->(event: 'increaseQuantity',$id);
+    // }
+
+    // public function increaseQuantity($id,$qty) {
+    //     if ($qty !=1) {
+    //         Cart::where ('product_id','$id')->updated(['qty'=>$qty -1]);
+    //     }else{
+    //         Cart::where('product_id',$id)->delete();
+    //     }
+    //     $this->emit(event: 'updateCart');
+    // }
  //   public function delete_function($id)
   //  {
       //      DB:delete('delete from product where id = ?', [$id]
