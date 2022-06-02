@@ -50,6 +50,7 @@ class ProductController extends Controller
             'product_id' => $id,
             'quantity' => 1,
             'user-id' => Auth::user()->id,
+            'phase' => 0,
 
         ]);
         return back();
@@ -57,6 +58,24 @@ class ProductController extends Controller
     public function removetocart($id){
         Cart::where('id', $id)->delete();
         return back();
+    }
+
+    public function payment(Request $request){
+        $payment = $request->payment;
+        $data = Cart::selectRaw('carts.id as cart_id, product_id, carts.quantity as client_quantity, product.quantity as store_quantity, product_image, description, category, price, size, status, barcode, color')->join('product', 'carts.product_id', '=', 'product.id')->where('phase', 0)->get();
+        
+        foreach($data as $item){
+            Cart::where('id',$item->cart_id)->update(['phase' => 1]);
+            $getproduct = productModel::where('id', $item->product_id)->first();
+            $newdata = $getproduct->quantity - $item->client_quantity;
+            productModel::where('id', $item->product_id)->update(['quantity' => $newdata]);
+        }
+        return view('reciept',compact('data','payment'));
+    }
+    public function changequantity($id, $val){
+        Cart::where('id',$id)->update(['quantity' => $val,]);
+
+        return 'success';
     }
 
     // public function increaseQuantity($id)

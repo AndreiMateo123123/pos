@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $data = productModel::get();
         $cat = categoryModel::get();
-        $cartdata = Cart::where('user-id', Auth::user()->id)->get();
+        $cartdata = Cart::where('user-id', Auth::user()->id)->where('phase', 0)->get();
 
         return view('dashboard', compact('data','cat','cartdata'));
     }
@@ -44,14 +44,15 @@ class HomeController extends Controller
     public function cart()
     {
 
-        $data = Cart::selectRaw('carts.id as cart_id, carts.quantity as client_quantity, product.quantity as store_quantity, product_image, description, category, price, size, status, barcode, color')->join('product', 'carts.product_id', '=', 'product.id')->get();
+        $data = Cart::selectRaw('carts.id as cart_id, carts.quantity as client_quantity, product.quantity as store_quantity, product_image, description, category, price, size, status, barcode, color')->join('product', 'carts.product_id', '=', 'product.id')->where('phase', 0)->get();
         // dd($data);
         return view('cart', compact('data'));
     }
     
     public function salesreport()
     {
-        return view('salesreport');
+        $data = Cart::selectRaw('carts.id as cart_id, carts.quantity as client_quantity, product.quantity as store_quantity, product_image, description, category, price, size, status, barcode, color')->join('product', 'carts.product_id', '=', 'product.id')->where('phase', 1)->get();
+        return view('salesreport',  compact('data'));
     }
     public function payment()
     {

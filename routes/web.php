@@ -52,3 +52,7 @@ Route::get('/add-cart/{id}', 'App\Http\Controllers\ProductController@addtocart')
 Route::get('/remove-cart/{id}', 'App\Http\Controllers\ProductController@removetocart')->name('cart.remove')->middleware('auth');
 
 Route::get('/dashboard/{id}', 'App\Http\Controllers\HomeController@dashdata')->name('dashdata')->middleware('auth');
+
+Route::get('/quantity/{id}/{value}', 'App\Http\Controllers\ProductController@changequantity')->name('changequantity')->middleware('auth');
+
+Route::post('/payment', 'App\Http\Controllers\ProductController@payment')->name('payment')->middleware('auth');

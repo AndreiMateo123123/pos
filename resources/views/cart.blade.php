@@ -72,9 +72,18 @@
         </div>
         <div class="col-md-4">
             <div class="card">
+                <form method="POST" action="{{ route('payment') }}">
+                    @csrf
                 <div class="card-header">
-                    <h3>Total: <span><input type="number" id="total" value="{{$total}}" style="border:none; background: transparent" disabled /></span></h3>
+                    <h3>Total: <span><input type="number" name="total" id="total" value="{{$total}}" style="border:none; background: transparent" /></span></h3>
                 </div>
+                <div class="card-body">
+                    <h5>Payment</h5>
+                        <input class="form-control" type="number" name="payment" id="payment" />
+
+                        <button type="submit" class="btn btn-success btn-block" >Pay Now!</button>
+                </div>
+            </form>
             </div>
         </div>
     </div>
@@ -82,10 +91,11 @@
 @endsection
 
 @push('js')
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="{{ asset('black') }}/js/plugins/chartjs.min.js"></script>
     <script>
         $(document).ready(function() {
-          demo.initDashboardPageCharts();
+
         });
 
         function inc(price, id, max){
@@ -96,6 +106,17 @@
             $x = parseInt($('#total').val());
             $('#total').val($x + price);
          }
+    
+        value = $('#input'+id).val();
+        $.ajax({
+        url: "/quantity/" + id + "/" +value,
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+            console.log(res);
+            alert(res);
+        }
+        });
         };  
         function dec(price, id){
         $quan =  parseInt($('#input'+id).val()) - 1;
@@ -104,6 +125,17 @@
             $x = parseInt($('#total').val());
             $('#total').val($x - price);
          }
+
+        value = $('#input'+id).val();
+        $.ajax({
+        url: "/quantity/" + id + "/" +value,
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+            console.log(res);
+            alert(res);
+        }
+    });
         };  
     </script>
 @endpush
