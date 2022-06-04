@@ -57,7 +57,20 @@
                                 <a href="#">{{ __('terms and conditions') }}</a>.
                             </label>
                         </div> --}}
+                        <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="tim-icons icon-email-85"></i>
+                                </div>
+                            </div>
+                           <select name="level" class="form-control">
+                                <option value="1">User</option>
+                                <option value="2">Admin</option>
+                           </select>
+                            @include('alerts.feedback', ['field' => 'email'])
+                        </div>
                     </div>
+                    
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-round btn-lg">{{ __('Get Started') }}</button>
                     </div>

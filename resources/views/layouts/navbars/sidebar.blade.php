@@ -11,25 +11,25 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'payment') class="active " @endif>
+            <li @if ($pageSlug == 'payment') class="active " @endif @if(Auth::user()->level != 2) hidden @endif>
                 <a href="{{ route('payment') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ __('payment') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'cancelorder') class="active " @endif>
+            <li @if ($pageSlug == 'cancelorder') class="active " @endif @if(Auth::user()->level != 2) hidden @endif>
                 <a href="{{ route('cancelorder') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ __('Cancel Order') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'product') class="active " @endif>
+            <li @if ($pageSlug == 'product') class="active " @endif @if(Auth::user()->level != 2) hidden @endif>
                 <a href="{{ route('product') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ __('Manage Product') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'salesreport') class="active " @endif>
+            <li @if ($pageSlug == 'salesreport') class="active " @endif @if(Auth::user()->level != 2) hidden @endif>
                 <a href="{{ route('salesreport') }}">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>{{ __('Sales Report') }}</p>
